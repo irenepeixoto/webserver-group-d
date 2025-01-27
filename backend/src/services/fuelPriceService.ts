@@ -3,9 +3,13 @@ import GeoApiResponse from "../types/GeoApiResponse";
 
 const fuelPriceService = {
   getAllByAddress: async (address: GeoApiResponse, fuelType: string) => {
-    if (!Object.keys(FuelTypes).some((k) => k === fuelType)) {
+    if (
+      !Object.keys(FuelTypes).some(
+        (validFuelType) => validFuelType === fuelType,
+      )
+    ) {
       throw new BadRequestError(
-        "THe provide fuel type is not valid, please chose a valid type: 'Gasóleo', 'Gasolina 95', 'Gasolina 98'",
+        "The provided fuel type is not valid, please chose a valid type: 'Gasóleo', 'Gasolina 95', 'Gasolina 98'",
       );
     }
 
@@ -18,7 +22,7 @@ const fuelPriceService = {
     const data = await response.json();
     const fuelPrices = data.resultado;
 
-    return fuelPrices
+    return fuelPrices;
   },
 };
 
