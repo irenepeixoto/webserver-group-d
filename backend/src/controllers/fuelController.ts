@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import fuelService from "../services/fuelService";
+import supabaseService from "../services/supabaseService";
 
 const fuelController = {
   getCheapest: async (
@@ -22,6 +23,9 @@ const fuelController = {
       const error = err as Error;
       res.status(500).json({ message: "Error fetching fuel prices and routes.", error: error.message });
     }
+    const route = await fuelService.getCheapest(postalCode, fuelType);
+    supabaseService.saveResponse(req.ip!, route)
+    res.status(200).json(route);
   },
   getNearest: async (
     req: Request<{}, {}, {}, { postalCode?: string; fuelType?: string }>,
@@ -43,6 +47,9 @@ const fuelController = {
       const error = err as Error;
       res.status(500).json({ message: "Error fetching fuel prices and routes.", error: error.message });
     }
+    const route = await fuelService.getNearest(postalCode, fuelType);
+    supabaseService.saveResponse(req.ip!, route)
+    res.status(200).json(route);
   },
 };
 
