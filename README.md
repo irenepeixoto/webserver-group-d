@@ -104,7 +104,7 @@ Aqui estão os principais endpoints da aplicação:
 |   |-- LICENCE
 |   |-- municipios_ids
 |   |-- README.md
-
+|
 ```
 
 ## Contribuindo
@@ -129,7 +129,6 @@ git push origin feature/nova-feature
 ## Licença
 
 Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para mais detalhes.
-
 
 ### Adicionar a atualização ao Git:
 
