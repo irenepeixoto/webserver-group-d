@@ -9,7 +9,6 @@ Aplicação web que sugere o posto de combustível mais próximo com o combustí
 - [Node.js](https://nodejs.org/) (versão 14 ou superior)
 - [npm](https://www.npmjs.com/) (versão 6 ou superior)
 - [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
 - Express: ```npm install express @types/express```
 
 ## Instalação
