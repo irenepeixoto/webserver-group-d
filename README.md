@@ -10,6 +10,7 @@ Aplicação web que sugere o posto de combustível mais próximo com o combustí
 - [npm](https://www.npmjs.com/) (versão 6 ou superior)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- Express: ```npm install express @types/express```
 
 ## Instalação
 
@@ -49,6 +50,13 @@ npm start
 ```
 
 O servidor vai rodar na porta configurada no seu arquivo `.env`.
+
+## APIs Utilizadas
+
+1. **GeoAPI**: Utilizada para obter o endereço a partir de um código postal.<br>
+   - [Obter endereço de um código postal](https://geoapi.pt/?mapa=3)
+2. **API de Preços de Combustíveis**: Utilizada para obter os preços dos combustíveis nos postos de combustível em Portugal.<br>
+   - [Pesquisar postos de combustíveis](https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/PesquisarPostos)
 
 ## Endpoints
 
