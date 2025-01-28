@@ -1,1 +1,77 @@
-yyuyuy
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webserver Group D</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .container {
+      max-width: 960px;
+    }
+    .header {
+      margin-top: 20px;
+    }
+    .header h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-section {
+      margin-bottom: 40px;
+    }
+    .result-section {
+      margin-top: 20px;
+    }
+    #map {
+      height: 500px;
+      width: 100%;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Posto de Combustível mais Próximo e Barato</h1>
+    </div>
+
+    <!-- Formulário -->
+    <div class="form-section">
+      <form id="fuel-form">
+        <div class="form-group row">
+          <label for="postalCode" class="col-sm-3 col-form-label">Código Postal</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="postalCode" placeholder="Insira seu código postal">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="fuelType" class="col-sm-3 col-form-label">Tipo de Combustível</label>
+          <div class="col-sm-9">
+            <select class="form-control" id="fuelType">
+              <option value="Gasóleo">Gasóleo</option>
+              <option value="Gasolina 95">Gasolina 95</option>
+              <option value="Gasolina 98">Gasolina 98</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="offset-sm-3 col-sm-9">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Resultados -->
+    <div id="results" class="result-section"></div>
+    <div id="map" class="result-section"></div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  </body>
+  </html>
