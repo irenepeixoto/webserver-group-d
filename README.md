@@ -8,7 +8,6 @@ Aplicação web que sugere o posto de combustível mais próximo com o combustí
 
 - [Node.js](https://nodejs.org/) (versão 14 ou superior)
 - [npm](https://www.npmjs.com/) (versão 6 ou superior)
-- Express: ```npm install express @types/express```
 
 ## Instalação
 
@@ -53,7 +52,8 @@ O servidor vai rodar na porta configurada no seu arquivo `.env`.
 
 Aqui estão os principais endpoints da aplicação:
 
-- `GET /fuel/cheapest`: Retorna o posto de combustível mais barato e próximo com base no tipo de combustível e código postal fornecidos.
+- `GET /fuel/cheapest`: Retorna o posto de combustível mais barato com base no tipo de combustível e código postal fornecidos.
+- `GET /fuel/nearest`: Retorna o posto de combustível mais próximo com base no tipo de combustível e código postal fornecidos.
 - `GET /geo/address`: Retorna o endereço a partir de um código postal.
 - `GET /route/distance`: Calcula a distância entre o endereço de origem e destino fornecidos.
 - `GET /route/complete`: Retorna a rota completa entre o endereço de origem e destino fornecidos.
