@@ -1,35 +1,31 @@
-const { RoutesClient } = require("@googlemaps/routing").v2;
-
-const routingClient = new RoutesClient({
-  apiKey: "",
-});
+import Address from "../models/Address";
 
 const routeService = {
-  getRouteDistance: async (originAddress: string, destinationAddress: string) => {
-    const origin = {
-      origin: { address: originAddress },
-    };
-    const destination = {
-      destination: { address: destinationAddress },
-    };
+  getRouteDistance: async (
+    originAddress: Address,
+    destinationAddress: Address,
+  ) => {
+    const url = "https://routes.googleapis.com/directions/v2:computeRoutes";
+    const GOOGLE_API_KEY = "AIzaSyDubVF_4V2Vr9ORnRhZ9kWB_TUtIo9uoMA";
 
-    const response = await routingClient.computeRoutes(
-      { origin, destination, units: "METRIC"},
-      {
-        otherArgs: {
-          headers: {
-            "Content-Type": "application/json",
-            "X-Goog-Api-Key": "",
-            "X-Goog-FieldMask":
-              "routes.duration,routes.distanceMeters",
-          },
-        },
+    const body = {
+      origin: { address: originAddress.fullAddress() },
+      destination: { address: destinationAddress.fullAddress() },
+    };
+    console.log(JSON.stringify(body));
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Goog-Api-Key": GOOGLE_API_KEY,
+        "X-Goog-FieldMask": "routes.duration,routes.distanceMeters",
       },
-    );
-
-    return response;
+      body: JSON.stringify(body),
+    });
+    const data = await response.json();
+    return data;
   },
-  getRouteComplete: async ()
 };
 
 export default routeService;
