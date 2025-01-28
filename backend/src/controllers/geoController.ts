@@ -9,7 +9,10 @@ const geoController = {
         return res.status(400).json({ message: "Postal code is required" });
       }
       const address = await geoApiService.getAddressByPostalCode(postalCode as string);
-      res.json(address);
+      if (!address) {
+        return res.status(404).json({ message: "Address not found" });
+      }
+      res.status(200).json(address);
     } catch (err) {
       const error = err as Error;
       res.status(500).json({ message: "Error fetching address", error: error.message });
