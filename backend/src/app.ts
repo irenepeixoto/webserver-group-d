@@ -1,11 +1,13 @@
-import express from "express";import geoApiService from "./services/geoApiService";
- const app = express();
+import express from "express";
+import fuelService from "./services/fuelService";
+const app = express();
+
 const port = process.env.EXPRESS_PORT || 3000;
 
 app.use(express.json());
 
 app.listen(port, async () => {
+  const a = await fuelService.getCheapest("4760-121", "Gasolina 95")
+  console.log(a);
   console.log(`listening on port ${port}`);
-  const address = await geoApiService.getAddressByPostalCode("4760-121");
-  console.log(address);
 });
