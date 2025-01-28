@@ -4,16 +4,22 @@ const routeService = {
   getRouteDistance: async (
     originAddress: Address,
     destinationAddress: Address,
-  ) => {
+  ): Promise<{ distanceMeters: number; duration: string }> => {
     const url = "https://routes.googleapis.com/directions/v2:computeRoutes";
     const apiKey = process.env.GOOGLE_API_KEY || "";
 
     const body = {
       origin: { address: originAddress.fullAddress() },
-      destination: { address: destinationAddress.fullAddress() },
+      destination: {
+        location: {
+          latLng: {
+            latitude: destinationAddress.latitude,
+            longitude: destinationAddress.longitude,
+          },
+        },
+      },
       travelMode: "DRIVE",
     };
-    console.log(JSON.stringify(body));
 
     const response = await fetch(url, {
       method: "POST",
@@ -25,7 +31,7 @@ const routeService = {
       body: JSON.stringify(body),
     });
     const data = await response.json();
-    return data;
+    return data.routes[0];
   },
   getRouteComplete: async (
     originAddress: Address,
@@ -36,10 +42,16 @@ const routeService = {
 
     const body = {
       origin: { address: originAddress.fullAddress() },
-      destination: { address: destinationAddress.fullAddress() },
+      destination: {
+        location: {
+          latLng: {
+            latitude: destinationAddress.latitude,
+            longitude: destinationAddress.longitude,
+          },
+        },
+      },
       travelMode: "DRIVE",
     };
-    console.log(JSON.stringify(body));
 
     const response = await fetch(url, {
       method: "POST",
@@ -51,7 +63,7 @@ const routeService = {
       body: JSON.stringify(body),
     });
     const data = await response.json();
-    return data;
+    return data.routes[0];
   },
 };
 

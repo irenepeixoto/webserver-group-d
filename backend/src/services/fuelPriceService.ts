@@ -21,7 +21,7 @@ const fuelPriceService = {
 
     const fuelTypeId = FuelTypes[fuelType as keyof typeof FuelTypes];
     const MunicipalityId =
-      MunicipalitiesIds[address.state as keyof typeof MunicipalitiesIds];
+      MunicipalitiesIds[address.municipality as keyof typeof MunicipalitiesIds];
 
     const url = `https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/PesquisarPostos?idsTiposComb=${fuelTypeId}&idMarca=&idTipoPosto=&idDistrito3=&idsMunicipios=${MunicipalityId}&qtdPorPagina=1000&pagina=1`;
 
@@ -34,6 +34,8 @@ const fuelPriceService = {
         result.Morada,
         result.Municipio,
         result.Distrito,
+        result.Latitude,
+        result.Longitude
       );
       const fuelPrice = new FuelPrice(
         result.Preco,
