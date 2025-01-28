@@ -110,10 +110,6 @@ Aqui estão os principais endpoints da aplicação:
 
 Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novas funcionalidades. Para contribuir com este projeto, siga os passos abaixo:
 
-## Contribuindo
-
-Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novas funcionalidades. Para contribuir com este projeto, siga os passos abaixo:
-
 1. Faça um fork do repositório.
 2. Crie uma branch para sua feature/correção: 
 ```bash
