@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    ports:
+      - "${EXPRESS_PORT}:${EXPRESS_PORT}"
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - EXPRESS_PORT=${EXPRESS_PORT}
+    volumes:
+      - ../backend:/app
+    command: npm start
