@@ -5,7 +5,7 @@ const routingClient = new RoutesClient({
 });
 
 const routeService = {
-  getRoute: async (originAddress: string, destinationAddress: string) => {
+  getRouteDistance: async (originAddress: string, destinationAddress: string) => {
     const origin = {
       origin: { address: originAddress },
     };
@@ -14,14 +14,14 @@ const routeService = {
     };
 
     const response = await routingClient.computeRoutes(
-      { origin, destination },
+      { origin, destination, units: "METRIC"},
       {
         otherArgs: {
           headers: {
             "Content-Type": "application/json",
             "X-Goog-Api-Key": "",
             "X-Goog-FieldMask":
-              "routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline",
+              "routes.duration,routes.distanceMeters",
           },
         },
       },
@@ -29,6 +29,7 @@ const routeService = {
 
     return response;
   },
+  getRouteComplete: async ()
 };
 
 export default routeService;
