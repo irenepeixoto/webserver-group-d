@@ -9,6 +9,8 @@ type FuelPriceApiResponse = {
     CodPostal: string;
     Combustivel: string;
     Morada: string;
+    Latitude: number;
+    Longitude: number;
   }[];
 };
 

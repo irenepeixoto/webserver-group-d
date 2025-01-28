@@ -4,6 +4,8 @@ class Address {
     readonly line: string,
     readonly municipality: string,
     readonly state: string,
+    readonly latitude: number = 0,
+    readonly longitude: number = 0,
   ) { }
 
   public fullAddress(): string {

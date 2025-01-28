@@ -7,7 +7,7 @@ const port = process.env.EXPRESS_PORT || 3000;
 app.use(express.json());
 
 app.listen(port, async () => {
-  const a = await fuelService.getCheapest("4760-121", "Gasolina 95")
+  const a = await fuelService.getNearest("4760-121", "Gasolina 95");
   console.log(a);
   console.log(`listening on port ${port}`);
 });
