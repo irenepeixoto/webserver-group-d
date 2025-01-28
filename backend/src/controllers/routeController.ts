@@ -6,7 +6,7 @@ const routeController = {
   getDistance: async (req: Request, res: Response) => {
     try {
       const { origin, destination } = req.query;
-      
+
       if (!origin || !destination) {
         return res.status(400).json({ message: 'Both origin and destination are required' });
       }
@@ -18,7 +18,10 @@ const routeController = {
       const destinationAddress = new Address(destinationAddr.postalCode, destinationAddr.line, destinationAddr.municipality, destinationAddr.state);
 
       const distance = await routeService.getRouteDistance(originAddress, destinationAddress);
-      res.json(distance);
+      if (!distance) {
+        return res.status(404).json({ message: 'Route not found' });
+      }
+      res.status(200).json(distance);
     } catch (err) {
       const error = err as Error;
       res.status(500).json({ message: 'Error calculating route distance', error: error.message });
@@ -39,9 +42,13 @@ const routeController = {
       const destinationAddress = new Address(destinationAddr.postalCode, destinationAddr.line, destinationAddr.municipality, destinationAddr.state);
 
       const route = await routeService.getRouteComplete(originAddress, destinationAddress);
-      res.json(route);
+      if (!route) {
+        return res.status(404).json({ message: 'Route not found' });
+      }
+      res.status(200).json(route);
     } catch (err) {
       const error = err as Error;
+      debugger;
       res.status(500).json({ message: 'Error calculating complete route', error: error.message });
     }
   },
