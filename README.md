@@ -8,6 +8,8 @@ Aplicação web que sugere o posto de combustível mais próximo com o combustí
 
 - [Node.js](https://nodejs.org/) (versão 14 ou superior)
 - [npm](https://www.npmjs.com/) (versão 6 ou superior)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 ## Instalação
 
@@ -54,9 +56,6 @@ Aqui estão os principais endpoints da aplicação:
 
 - `GET /fuel/cheapest`: Retorna o posto de combustível mais barato com base no tipo de combustível e código postal fornecidos.
 - `GET /fuel/nearest`: Retorna o posto de combustível mais próximo com base no tipo de combustível e código postal fornecidos.
-- `GET /geo/address`: Retorna o endereço a partir de um código postal.
-- `GET /route/distance`: Calcula a distância entre o endereço de origem e destino fornecidos.
-- `GET /route/complete`: Retorna a rota completa entre o endereço de origem e destino fornecidos.
 
 ## Estrutura do Projeto
 
@@ -107,6 +106,28 @@ Aqui estão os principais endpoints da aplicação:
 |
 ```
 
+## Configuração do Docker
+
+### Construindo e Iniciando o Container Docker
+
+1. Navegue até o diretório onde o docker-compose.yml está localizado:
+
+```bash
+cd Docker
+```
+
+2. Construa a imagem Docker:
+
+```bash
+docker-compose build
+```
+
+3. Inicie o container:
+
+```bash
+docker-compose up
+```
+
 ## Contribuição
 
 Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novas funcionalidades. Para contribuir com este projeto, siga os passos abaixo:
@@ -136,8 +157,3 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para m
 ```bash
 git checkout -b update-readme
 ```
-
-
-
-
-
