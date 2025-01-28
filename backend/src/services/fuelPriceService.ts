@@ -1,8 +1,14 @@
 import BadRequestError from "../errors/BadRequest";
+import Address from "../models/Address";
+import FuelPrice from "../models/FuelPrice";
+import FuelPriceApiResponse from "../types/FuelPriceApiResponse";
 import GeoApiResponse from "../types/GeoApiResponse";
 
 const fuelPriceService = {
-  getAllByAddress: async (address: GeoApiResponse, fuelType: string) => {
+  getAllByAddress: async (
+    address: Address,
+    fuelType: string,
+  ): Promise<FuelPrice[]> => {
     if (
       !Object.keys(FuelTypes).some(
         (validFuelType) => validFuelType === fuelType,
@@ -15,12 +21,28 @@ const fuelPriceService = {
 
     const fuelTypeId = FuelTypes[fuelType as keyof typeof FuelTypes];
     const MunicipalityId =
-      MunicipalitiesIds[address.Concelho as keyof typeof MunicipalitiesIds];
+      MunicipalitiesIds[address.state as keyof typeof MunicipalitiesIds];
 
     const url = `https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/PesquisarPostos?idsTiposComb=${fuelTypeId}&idMarca=&idTipoPosto=&idDistrito3=&idsMunicipios=${MunicipalityId}&qtdPorPagina=1000&pagina=1`;
+
     const response = await fetch(url);
-    const data = await response.json();
-    const fuelPrices = data.resultado;
+    const data = (await response.json()) as FuelPriceApiResponse;
+
+    const fuelPrices = data.resultado.map((result) => {
+      const stationAddress = new Address(
+        result.CodPostal,
+        result.Morada,
+        result.Municipio,
+        result.Distrito,
+      );
+      const fuelPrice = new FuelPrice(
+        result.Preco,
+        result.Combustivel,
+        stationAddress,
+        result.Nome,
+      );
+      return fuelPrice;
+    });
 
     return fuelPrices;
   },
