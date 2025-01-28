@@ -1,7 +1,7 @@
 const { RoutesClient } = require("@googlemaps/routing").v2;
 
 const routingClient = new RoutesClient({
-  apiKey: "AIzaSyDubVF_4V2Vr9ORnRhZ9kWB_TUtIo9uoMA",
+  apiKey: "",
 });
 
 const routeService = {
@@ -19,7 +19,7 @@ const routeService = {
         otherArgs: {
           headers: {
             "Content-Type": "application/json",
-            "X-Goog-Api-Key": "AIzaSyDubVF_4V2Vr9ORnRhZ9kWB_TUtIo9uoMA",
+            "X-Goog-Api-Key": "",
             "X-Goog-FieldMask":
               "routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline",
           },
