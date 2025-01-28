@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Aplicativo web que sugere o posto de combustível mais próximo com o combustível mais barato. Utiliza APIs para obter preços de combustíveis em Portugal e localização de postos de combustível.
+Aplicação web que sugere o posto de combustível mais próximo com o combustível mais barato. Utiliza APIs para obter preços de combustíveis em Portugal e localização de postos de combustível.
 
 ## Pré-requisitos
 
@@ -42,12 +42,12 @@ Certifique-se de configurar o Supabase com as seguintes variáveis de ambiente:
 
 ## Uso
 
-Para iniciar o servidor, você pode usar o comando:
+Para iniciar o servidor, pode usar o comando:
 ```bash
 npm start
 ```
 
-O servidor estará rodando na porta configurada no seu arquivo `.env`.
+O servidor vai rodar na porta configurada no seu arquivo `.env`.
 
 ## Endpoints
 
@@ -107,7 +107,7 @@ Aqui estão os principais endpoints da aplicação:
 |
 ```
 
-## Contribuindo
+## Contribuição
 
 Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novas funcionalidades. Para contribuir com este projeto, siga os passos abaixo:
 
