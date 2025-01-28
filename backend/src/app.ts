@@ -1,6 +1,7 @@
 import express from "express";
 import fuelService from "./services/fuelService";
 const app = express();
+
 const port = process.env.EXPRESS_PORT || 3000;
 
 app.use(express.json());
