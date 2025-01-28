@@ -1,5 +1,5 @@
 import express from "express";
-import fuelService from "./services/fuelService";
+import "express-async-errors";
 import fuelRoute from "./routes/fuelRoute";
 import errorHandler from "./middlewares/errorHandler";
 const app = express();
