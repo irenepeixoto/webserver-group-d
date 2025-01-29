@@ -57,7 +57,8 @@ O servidor vai rodar na porta configurada no seu arquivo `.env`.
    - [Obter endereço de um código postal](https://geoapi.pt/?mapa=3)
 2. **API de Preços de Combustíveis**: Utilizada para obter os preços dos combustíveis nos postos de combustível em Portugal.<br>
    - [Pesquisar postos de combustíveis](https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/PesquisarPostos)
-
+3. **API Google Routes**: Utilizada para obter rotas entre o endereço do utilizador e do posto de combustível.<br>
+   - [Obter Rostas](https://developers.google.com/maps/documentation/routes)
 ## Endpoints
 
 Aqui estão os principais endpoints da aplicação:
