@@ -1,4 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
+import 'dotenv/config'
+
 
 export type Json =
   | string

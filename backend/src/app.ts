@@ -2,6 +2,7 @@ import express from "express";
 import "express-async-errors";
 import fuelRoute from "./routes/fuelRoute";
 import errorHandlerMiddleware from "./middlewares/errorHandler";
+
 const app = express();
 
 const port = process.env.EXPRESS_PORT || 3000;
