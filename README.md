@@ -113,22 +113,22 @@ Aqui estão os principais endpoints da aplicação:
 
 ### Construindo e Iniciando o Container Docker
 
-1. Navegue até o diretório onde o docker-compose.yml está localizado:
+1. Navegue até o diretório do webservice:
 
 ```bash
-cd Docker
+cd backend
 ```
 
 2. Construa a imagem Docker:
 
 ```bash
-docker-compose build
+docker build . --network=host -t backend
 ```
 
 3. Inicie o container:
 
 ```bash
-docker-compose up
+docker run -p 3000:3000 -e SUPABASE_KEY=chave-api-supabase -e SUPABASE_URL=url-api-supabase -e GOOGLE_API_KEY=chave-api-google --network="host" -t backend
 ```
 
 ## Contribuição
