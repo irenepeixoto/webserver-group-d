@@ -70,7 +70,6 @@ Aqui estão os principais endpoints da aplicação:
 
 ```plaintext
 |-- backend/
-|   |-- .vscode/
 |   |-- node_modules/
 |   |-- src/
 |   |   |-- controllers/
@@ -95,11 +94,6 @@ Aqui estão os principais endpoints da aplicação:
 |   |   |   |-- FuelPriceApiResponse.ts
 |   |   |   |-- GeoApiResponse.ts
 |   |   |-- app.ts
-|   |-- Dockerfile
-|-- database/
-|   |-- schema.sql
-|-- Docker/
-|   |-- docker-compose.yml
 |   |-- Dockerfile
 |-- frontend/
 |   |-- scripts/
