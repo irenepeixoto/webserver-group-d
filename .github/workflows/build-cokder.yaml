@@ -1,9 +1,9 @@
 name: Build docker image and push to Docker Hub
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   publish_image:
@@ -14,6 +14,5 @@ jobs:
       - name: build image
         run: docker build ./backend/ -t viniciusym/webserver-group-d:latest
       - name: push image to docker hub
-        run:
-          docker login -u viniciusym -p ${{ env.DOCKER_HUB_TOKEN }}
+        run: docker login -u viniciusym -p ${{ secrets.DOCKER_HUB_TOKEN }}
           docker push viniciusym/webserver-group-d:latest
