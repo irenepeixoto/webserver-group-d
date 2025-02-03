@@ -15,5 +15,5 @@ jobs:
         run: docker build ./backend/ -t viniciusym/webserver-group-d:latest
       - name: push image to docker hub
         run:
-          docker login -u viniciusym -p ${{ secrets.DOCKER_HUB_TOKEN }}
+          docker login -u viniciusym -p ${{ env.DOCKER_HUB_TOKEN }}
           docker push viniciusym/webserver-group-d:latest
